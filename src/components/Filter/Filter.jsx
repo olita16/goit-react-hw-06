@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFilter } from '../../redux/selectors.js';
-import { changeFilter } from '../../redux/filterSlice.js';
+import { changeFilter } from '../../redux/filtersSlice.js';
 import css from '../Filter/Filter.module.css';
 
 const filterInputId = nanoid();
