@@ -1,34 +1,22 @@
-import { nanoid } from 'nanoid';
-import { useSelector, useDispatch } from 'react-redux';
-import { getFilter } from '../../redux/selectors.js';
-import { changeFilter } from '../../redux/filtersSlice.js';
-import css from './SearchBox.module.css';
 
-const filterInputId = nanoid();
+import React from 'react';
+import css from "./SearchBox.module.css"
+import { useDispatch, useSelector } from 'react-redux';
+import { changeFilter, selectFilters } from '../../redux/filtersSlice';
 
-function Filter() {
-  const value = useSelector(getFilter);
-  const dispatch = useDispatch();
 
-  const onChangeFilter = event => {
-    const normalizedValue = event.target.value.toLowerCase();
 
-    dispatch(changeFilter(normalizedValue));
-  };
-
-  return (
-    <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <label className={css.filterLabel}>
-        Find contacts by name
-        <input
-          type="text"
-          value={value}
-          onChange={onChangeFilter}
-          id={filterInputId}
-        />
-      </label>
-    </div>
-  );
+function SearchBox() {
+    const dispatch = useDispatch();
+    const filter = useSelector(selectFilters);
+    return (
+        <div>
+            <label className={css.formLabel}>
+                <span>Find contacts by name</span>
+                <input className={css.formLabel} type="text" value={filter} onChange={e => dispatch(changeFilter(e.target.value))} />
+            </label>
+        </div>
+    );
 }
 
-export default Filter;
+export default SearchBox;

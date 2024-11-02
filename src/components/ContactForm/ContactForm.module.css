@@ -1,20 +1,22 @@
+
 .contactForm {
+  border: 1px solid black;
+  border-radius: 3px;
   padding: 5px;
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 16px;
   margin-bottom: 16px;
 }
 
 .formLabel {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
 }
 
 .formLabel input {
   display: block;
-  border-radius: 5px;
   padding: 5px;
 }
 
@@ -24,7 +26,7 @@
   box-shadow: 0 0 1px 2px rgba(39, 34, 178, 0.7);
 }
 
-.addButton {
+.btnAdd {
   padding: 10px;
   width: 100%;
   border-radius: 50px;
@@ -38,9 +40,16 @@
   cursor: pointer;
 }
 
-.addButton:hover,
-.addButton:focus {
+.btnAdd:hover,
+.btnAdd:focus {
   border-color: #250272;
   background-color: #250272;
   color: rgb(210, 201, 249);
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 14px; 
+  margin-top: 5px; 
+  font-weight: 500;
 }
